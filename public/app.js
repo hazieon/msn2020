@@ -21,7 +21,8 @@ socket.on("message", (message) => {
   //Update type of message based on username
   if (message.type !== messageTypes.LOGIN) {
     if (message.author === username) {
-      message.type = messageTypes.LEFT;
+      //both .types were set to change left, made this to be one or the other
+      message.type = messageTypes.RIGHT;
     } else {
       message.type = messageTypes.LEFT;
     }
@@ -30,8 +31,9 @@ socket.on("message", (message) => {
   messages.unshift(message);
   displayMessages();
 
-  //scroll to the bottom
-  chatWindow.scrollTop = chatWindow.scrollWidth;
+  //scroll to the bottom - changed from scrollWIDTH to scrollHEIGHT
+  debugger;
+  chatWindow.scrollTop = chatWindow.scrollHeight;
 });
 
 createMessageHTML = (message) => {
@@ -42,7 +44,8 @@ createMessageHTML = (message) => {
   }
   return `
 	<div class="message ${
-    message.type === messageTypes.RIGHT ? "message-left" : "message-right"
+    //switched around the ternary conditions - right applied when type is right
+    message.type === messageTypes.RIGHT ? "message-right" : "message-left"
   }">
 		<div class="message-details flex">
 			<p class="flex-grow-1 message-author">${
@@ -56,6 +59,7 @@ createMessageHTML = (message) => {
 };
 
 displayMessages = () => {
+  //removed unnecessary messagesHTML.length
   const messagesHTML = messages
     .map((message) => createMessageHTML(message))
     .join("");
@@ -75,8 +79,8 @@ sendBtn.addEventListener("click", (e) => {
   const dateString = `${day}/${month}/${year}`;
 
   const message = {
-    author: dateString,
-    date: username,
+    author: username,
+    date: dateString,
     content: messageInput.value,
   };
   sendMessage(message);
