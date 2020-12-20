@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const http = require("http").Server(app);
+const PORT = process.env.PORT || 3000;
 const io = require("socket.io")(http, {
   pingTimeout: 60000,
 });
@@ -27,6 +28,6 @@ io.on("connection", (socket) => {
   });
 });
 
-http.listen(3000, () => {
-  console.log("listening on port 3000");
+http.listen(PORT, () => {
+  console.log("listening on port");
 });
