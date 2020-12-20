@@ -28,11 +28,11 @@ socket.on("message", (message) => {
     }
   }
 
-  messages.unshift(message);
+  // debugger;
+  messages.push(message);
   displayMessages();
 
   //scroll to the bottom - changed from scrollWIDTH to scrollHEIGHT
-  debugger;
   chatWindow.scrollTop = chatWindow.scrollHeight;
 });
 
@@ -73,10 +73,10 @@ sendBtn.addEventListener("click", (e) => {
   }
 
   const date = new Date();
-  const month = ("0" + date.getMonth()).slice(0, 1);
+  const month = date.getMonth()
   const day = date.getDate();
   const year = date.getFullYear();
-  const dateString = `${day}/${month}/${year}`;
+  const dateString = `${day}/${month+1}/${year}`;
 
   const message = {
     author: username,

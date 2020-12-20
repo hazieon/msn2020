@@ -17,7 +17,7 @@
 }
 
 body {
-	font-family: Helvetica, sans-serifs;
+	font-family: 'Trebuchet MS';
 	color: var(--primary-text);
 }
 
@@ -121,22 +121,29 @@ input {
 	padding: 10px;
 	background-color: var(--light-blue);
 	border: none;
+	border-top-left-radius:10px;
+	border-bottom-left-radius:10px;
+	box-shadow: 0px 1px 3px 1px rgba(150, 185, 221, 0.76);
 	color: var(--secondary-text);
 }
 
 button {
 	height: 40px;
-	padding: 0 15px;
+	padding: 0 12px;
 	background-color: var(--primary-blue);
 	color: white;
 	border: none;
+	border-top-right-radius:10px;
+	border-bottom-right-radius:10px;
+	box-shadow: 0px 1px 3px 1px rgba(150, 185, 221, 0.76);
+	z-index:3;
 }
 
 /* Chat */
 
 #chat {
-	background: white;
-	height: 100px;
+	background: rgb(241, 241, 241);
+	height: 150px;
 	margin: 25px 0;
 	padding: 25px 25px;
 	color: white;
@@ -144,7 +151,7 @@ button {
 }
 
 #messageForm {
-	margin-bottom: 25px;
+	margin-bottom: 1px;
 }
 
 .message {
