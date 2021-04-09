@@ -5,7 +5,7 @@ The purpose of the task was to get hands on with websockets within React and to 
 After debugging the project and getting it functional, I modified the app and the CSS to be reminiscent of MSN.
 
 ## view the deployed application:
-msn2020.herokuapp.com/ 
+http://msn2020.herokuapp.com/ 
 
 
 # About debugging tools:
